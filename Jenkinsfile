@@ -8,7 +8,7 @@ pipeline {
   }
   stages {
     stage('Initialize'){
-      def dockerHome = tool 'myDocker'
+      def dockerHome = tool 'jviadeyeDocker'
       env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
     stage('Build') {
@@ -17,7 +17,7 @@ pipeline {
       }
     }
     stage('Initialize'){
-      def dockerHome = tool 'myDocker'
+      def dockerHome = tool 'jviadeyeDocker'
       env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
     stage('Scan') {
@@ -26,7 +26,7 @@ pipeline {
       }
     }
     stage('Initialize'){
-      def dockerHome = tool 'myDocker'
+      def dockerHome = tool 'jviadeyeDocker'
       env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
     stage('Publish') {
