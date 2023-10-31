@@ -1,16 +1,12 @@
 pipeline {
-	agent none
+  agent any
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('jviadeye-dockerhub')
+  }
   stages {
-  	stage('Maven Install') {
-    	agent {
-      	docker {
-        	image 'maven:3.5.0'
-        }
-      }
-      steps {
-      	sh 'mvn clean install'
-      }
-    }
     stage('Build') {
       steps {
         sh 'docker build -t jviadeye/nginx_image .'
