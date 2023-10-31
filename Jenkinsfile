@@ -7,7 +7,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('jviadeye-dockerhub')
   }
   stages {
-    stage('Initialize'){
+    stage('Initialize') {
       def dockerHome = tool 'jviadeyeDocker'
       env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
@@ -16,7 +16,7 @@ pipeline {
         sh 'docker build -t jviadeye/nginx_image .'
       }
     }
-    stage('Initialize'){
+    stage('Initialize') {
       def dockerHome = tool 'jviadeyeDocker'
       env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
@@ -25,7 +25,7 @@ pipeline {
         sh 'docker scan jviadeye/nginx_image'
       }
     }
-    stage('Initialize'){
+    stage('Initialize') {
       def dockerHome = tool 'jviadeyeDocker'
       env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
