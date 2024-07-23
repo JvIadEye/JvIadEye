@@ -4,7 +4,7 @@ pipeline {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('jviadeye-dockerhub')
+    DOCKERHUB_CREDENTIALS = credentials('jenkins-dockerHub')
   }
   stages {
     stage('Build') {
