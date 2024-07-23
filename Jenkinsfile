@@ -20,7 +20,7 @@ pipeline {
     stage('Publish') {
       steps {
         sh '''
-          docker login -u $JENKINS-DOCKERHUB_CREDENTIALS_USR -p $JENKINS-DOCKERHUB_CREDENTIALS_PSW
+          docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW
           docker push jviadeye/nginx_image
           docker logout
         '''
